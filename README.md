@@ -9,8 +9,6 @@
 
 
 * pip install pystyle
-* pip install fore
-* pip install back
 * pip install colorama
 * git clone https://github.com/blackheadn1g4/credit-card-generator.git
 * cd credit-card-generator
