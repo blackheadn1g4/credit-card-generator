@@ -1,7 +1,6 @@
 import random
+from colorama import Fore
 from pystyle import *
-import colorama
-from colorama import Fore, Style, Back
 
 intro = '''
 
@@ -29,24 +28,20 @@ Anime.Fade(
     enter=True,
 )
 
+print(f'''{Fore.LIGHTGREEN_EX}
+░█████╗░██████╗░███████╗██████╗░██╗████████╗  ░█████╗░░█████╗░██████╗░██████╗░
+██╔══██╗██╔══██╗██╔════╝██╔══██╗██║╚══██╔══╝  ██╔══██╗██╔══██╗██╔══██╗██╔══██╗
+██║░░╚═╝██████╔╝█████╗░░██║░░██║██║░░░██║░░░  ██║░░╚═╝███████║██████╔╝██║░░██║
+██║░░██╗██╔══██╗██╔══╝░░██║░░██║██║░░░██║░░░  ██║░░██╗██╔══██║██╔══██╗██║░░██║
+╚█████╔╝██║░░██║███████╗██████╔╝██║░░░██║░░░  ╚█████╔╝██║░░██║██║░░██║██████╔╝
+░╚════╝░╚═╝░░╚═╝╚══════╝╚═════╝░╚═╝░░░╚═╝░░░  ░╚════╝░╚═╝░░╚═╝╚═╝░░╚═╝╚═════╝░
 
-print(f'''
-
-
-{Fore.LIGHTGREEN_EX}░█████╗░██████╗░███████╗██████╗░██╗████████╗  ░█████╗░░█████╗░██████╗░██████╗░
-{Fore.LIGHTGREEN_EX}██╔══██╗██╔══██╗██╔════╝██╔══██╗██║╚══██╔══╝  ██╔══██╗██╔══██╗██╔══██╗██╔══██╗
-{Fore.LIGHTGREEN_EX}██║░░╚═╝██████╔╝█████╗░░██║░░██║██║░░░██║░░░  ██║░░╚═╝███████║██████╔╝██║░░██║
-{Fore.LIGHTGREEN_EX}██║░░██╗██╔══██╗██╔══╝░░██║░░██║██║░░░██║░░░  ██║░░██╗██╔══██║██╔══██╗██║░░██║
-{Fore.LIGHTGREEN_EX}╚█████╔╝██║░░██║███████╗██████╔╝██║░░░██║░░░  ╚█████╔╝██║░░██║██║░░██║██████╔╝
-{Fore.LIGHTGREEN_EX}░╚════╝░╚═╝░░╚═╝╚══════╝╚═════╝░╚═╝░░░╚═╝░░░  ░╚════╝░╚═╝░░╚═╝╚═╝░░╚═╝╚═════╝░
-
-{Fore.LIGHTGREEN_EX}░██████╗░███████╗███╗░░██╗███████╗██████╗░░█████╗░████████╗░█████╗░██████╗░
-{Fore.LIGHTGREEN_EX}██╔════╝░██╔════╝████╗░██║██╔════╝██╔══██╗██╔══██╗╚══██╔══╝██╔══██╗██╔══██╗
-{Fore.LIGHTGREEN_EX}██║░░██╗░█████╗░░██╔██╗██║█████╗░░██████╔╝███████║░░░██║░░░██║░░██║██████╔╝
-{Fore.LIGHTGREEN_EX}██║░░╚██╗██╔══╝░░██║╚████║██╔══╝░░██╔══██╗██╔══██║░░░██║░░░██║░░██║██╔══██╗
-{Fore.LIGHTGREEN_EX}╚██████╔╝███████╗██║░╚███║███████╗██║░░██║██║░░██║░░░██║░░░╚█████╔╝██║░░██║
-{Fore.LIGHTGREEN_EX}░╚═════╝░╚══════╝╚═╝░░╚══╝╚══════╝╚═╝░░╚═╝╚═╝░░╚═╝░░░╚═╝░░░░╚════╝░╚═╝░░╚═╝
-
+░██████╗░███████╗███╗░░██╗███████╗██████╗░░█████╗░████████╗░█████╗░██████╗░
+██╔════╝░██╔════╝████╗░██║██╔════╝██╔══██╗██╔══██╗╚══██╔══╝██╔══██╗██╔══██╗
+██║░░██╗░█████╗░░██╔██╗██║█████╗░░██████╔╝███████║░░░██║░░░██║░░██║██████╔╝
+██║░░╚██╗██╔══╝░░██║╚████║██╔══╝░░██╔══██╗██╔══██║░░░██║░░░██║░░██║██╔══██╗
+╚██████╔╝███████╗██║░╚███║███████╗██║░░██║██║░░██║░░░██║░░░╚█████╔╝██║░░██║
+░╚═════╝░╚══════╝╚═╝░░╚══╝╚══════╝╚═╝░░╚═╝╚═╝░░╚═╝░░░╚═╝░░░░╚════╝░╚═╝░░╚═╝
 ''')
 
 
@@ -58,18 +53,21 @@ def generate_credit_card():
     cvv = ''.join(str(random.randint(0, 9)) for _ in range(3))
     return card_number, expiration_month, expiration_year, cvv
 
-def generate_credit_card_file(file_path, num_codes):
-    credit_cards = [generate_credit_card() for _ in range(num_codes)]
-    with open(file_path, 'w') as file:
+
+def generate_credit_card_file(file_name1, num_codes1):
+    credit_cards = [generate_credit_card() for _ in range(num_codes1)]
+    with open(file_name1, 'w') as file:
         for card_number, expiration_month, expiration_year, cvv in credit_cards:
             file.write("Card Number: {}\n".format(card_number))
             file.write("Expiration Date: {}/{}\n".format(expiration_month, expiration_year))
             file.write("CVV: {}\n".format(cvv))
             file.write('\n')
 
+
 num_codes = int(input("Enter the number of credit card codes to generate: "))
-file_path = input("Enter the file path to save the generated credit card codes: ")
+file_name = input("Enter the file Name to save the generated credit card codes: ")
+file_name = file_name + ".txt"
 
 print("Generating Credit Card Codes...")
-generate_credit_card_file(file_path, num_codes)
-print("Credit Card Codes have been generated and saved to", file_path)
+generate_credit_card_file(file_name, num_codes)
+print("Credit Card Codes have been generated and saved to", file_name)
